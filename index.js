@@ -11,7 +11,7 @@ const xlsx = require('xlsx');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ['https://incubation-wn5f.vercel.app'],
+    origin: ['https://sairamhub.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
