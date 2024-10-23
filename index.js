@@ -814,7 +814,7 @@ app.post('/api/forgot-password', (req, res) => {
                 return res.status(500).json({ error: "An error occurred while creating reset token." });
             }
 
-            const resetUrl = `http://localhost:3000/reset-password?token=${resetToken}&email=${email}`;
+            const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}&email=${email}`;
             const mailOptions = {
                 From: 'sit22cs021@sairamtap.edu.in',
                 To: email,
