@@ -876,7 +876,4 @@ app.post('/api/reset-password', (req, res) => {
     });
 });
 
-app.use((req, res) => {
-    res.status(404).json({ error: "Not Found" });
-});
 module.exports = app;
