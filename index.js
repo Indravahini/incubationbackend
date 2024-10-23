@@ -669,12 +669,12 @@ app.post('/api/register', async (req, res) => {
             // Store the registration details in pendingRegistrations
             pendingRegistrations[confirmationId] = { username, email, hashedPassword, department, college };
 
-            const mailOptions = {
-                From: 'sit22cs021@sairamtap.edu.in',
-                To: adminEmail,
-                Subject: 'New Registration Request',
-                TextBody: `A new registration request has been made by ${username} (${email}). To approve, please click the following link: http://localhost:8081/api/confirm/${confirmationId}`
-            };
+  const mailOptions = {
+    From: 'sit22cs021@sairamtap.edu.in',
+    To: adminEmail,
+    Subject: 'New Registration Request',
+    TextBody: `A new registration request has been made by ${username} (${email}). To approve, please click the following link: ${process.env.BACKEND_URL}/api/confirm/${confirmationId}`
+};
 
             postmarkClient.sendEmail(mailOptions, (error, result) => {
                 if (error) {
