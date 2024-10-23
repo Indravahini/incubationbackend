@@ -876,7 +876,7 @@ app.post('/api/reset-password', (req, res) => {
     });
 });
 
-// Start the server
-app.listen(8081, () => {
-     console.log('Server running on port 8081');
+app.use((req, res) => {
+    res.status(404).json({ error: "Not Found" });
 });
+module.exports = app;
