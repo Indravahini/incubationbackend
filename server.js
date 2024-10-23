@@ -10,7 +10,11 @@ const xlsx = require('xlsx');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ['https://incubation-wn5f.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
