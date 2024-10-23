@@ -715,12 +715,12 @@ app.get('/api/confirm/:confirmationId', async (req, res) => {
             .setExpirationTime('1h')
             .sign(privateKey);
 
-        const userMailOptions = {
-            From: 'sit22cs021@sairamtap.edu.in',
-            To: pendingUser.email,
-            Subject: 'Registration Approved',
-            TextBody: `Hello ${pendingUser.username}, your registration has been approved. You can now log in using the following link: http://localhost:3000/api/login`
-        };
+  const userMailOptions = {
+    From: 'sit22cs021@sairamtap.edu.in',
+    To: pendingUser.email,
+    Subject: 'Registration Approved',
+    TextBody: `Hello ${pendingUser.username}, your registration has been approved. You can now log in using the following link: ${process.env.FRONTEND_URL}/login`
+};
 
         postmarkClient.sendEmail(userMailOptions, (error, result) => {
             if (error) {
