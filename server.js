@@ -12,15 +12,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// const db = mysql.createConnection({
-//     host: 'sql211.infinityfree.com',
-//     user: 'if0_37496893',
-//     password: 'FuqlRkBWTr',
-//     database: 'if0_37496893_inventory',
-//     port: 3306
-// });
-
-app.use(express.json());
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
