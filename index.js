@@ -244,7 +244,7 @@ app.delete('/api/product/:id', (req, res) => {
 });
 
 app.post('/api/upload', (req, res) => {
-    const busboy = new Busboy({ headers: req.headers });
+    const busboy = Busboy({ headers: req.headers });  // No 'new' keyword
     let fileBuffer;
 
     busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
